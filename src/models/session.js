@@ -31,14 +31,3 @@ const sessionSchema = new Schema(
 );
 
 export const Session = model("Session", sessionSchema);
-
-/*
-У файлі src/models/session.js створіть модель Session із такими властивостями:
-
-userId — тип Schema.Types.ObjectId, обов’язкове;
-accessToken — рядок, обов’язкове;
-refreshToken — рядок, обов’язкове;
-accessTokenValidUntil — тип Date, обов’язкове;
-refreshTokenValidUntil — тип Date, обов’язкове.
-Для автоматичного створення полів createdAt та updatedAt, використовуйте параметр timestamps: true при створенні моделі.
-*/
