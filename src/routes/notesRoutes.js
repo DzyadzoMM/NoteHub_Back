@@ -9,19 +9,14 @@ const router = Router();
 
 router.use('/notes', authenticate);
 
-// Отримання всіх нотаток
 router.get('/notes',celebrate(getAllNotesSchema), getAllNotes);
 
-//Отримання однієї нотатки
 router.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
 
-// Створення нотатки
 router.post('/notes', celebrate(createNoteSchema), createNote);
 
-//Видалення нотатки
 router.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
 
-//Оновлення нотатки
 router.patch('/notes/:noteId',celebrate(updateNoteSchema), updateNote)
 
 export default router;
