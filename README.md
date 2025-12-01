@@ -26,5 +26,11 @@
 
 
 ## 🌐 Розгортання
-* ​Цей API розгорнуто на платформі Render.
-* Базовий URL_API: https://notehub-back.onrender.com
+Цей API розгорнуто на платформі Render.  
+Базовий URL_API: https://notehub-back.onrender.com
+
+## 🔗 Зв'язатися зі мною
+
+* **[LinkedIn](https://www.linkedin.com/in/myroslav-dzyadzo)** 💼
+* **Telegram:** [@Dzyadzo\_Myroslav](https://t.me/Dzyadzo_Myroslav) ✈️
+* **Email:** [m.dziadzo@gmail.com](mailto:m.dziadzo@gmail.com) 📧
