@@ -19,4 +19,3 @@ router.post('/auth/request-reset-email', celebrate(requestResetEmailSchema), req
 router.post('/auth/reset-password', celebrate(resetPasswordSchema), resetPassword);
 
 export default router;
-

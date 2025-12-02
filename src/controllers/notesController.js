@@ -1,10 +1,7 @@
 import { Note } from '../models/note.js';
 import createHttpError from 'http-errors';
 
-
-//Отримання всіх нотаток
 export const getAllNotes = async (req, res)=>{
-    //const {page = 1, perPage = 15, tag} = req.query
     const page = parseInt(req.query.page||1);
     const perPage = parseInt(req.query.perPage||15);
     const tag = req.query.tag;
@@ -37,7 +34,6 @@ export const getAllNotes = async (req, res)=>{
     });
 };
 
-//Отримання однієї нотатки
 export const getNoteById = async (req, res, next) => {
   const { noteId } = req.params;
   const note = await Note.findOne({
@@ -52,7 +48,6 @@ export const getNoteById = async (req, res, next) => {
   res.status(200).json(note);
 };
 
-// Створення нотатки
 export const createNote = async (req, res) => {
   const note = await Note.create({
     ...req.body,
@@ -61,7 +56,6 @@ export const createNote = async (req, res) => {
   res.status(201).json(note);
 };
 
-//Видалення нотатки
 export const deleteNote = async (req, res, next) => {
   const { noteId } = req.params;
   const note = await Note.findOneAndDelete({
@@ -76,14 +70,13 @@ export const deleteNote = async (req, res, next) => {
   res.status(200).send(note);
 };
 
-//Оновлення даних нотатки
 export const updateNote = async (req, res, next) =>{
   const { noteId } = req.params;
 
   const note = await Note.findOneAndUpdate(
-    { _id: noteId, userId: req.user._id }, // Шукаємо по id та по id користувача
+    { _id: noteId, userId: req.user._id },
     req.body,
-    { new: true }, // повертаємо оновлений документ
+    { new: true },
   );
 
   if (!note) {
