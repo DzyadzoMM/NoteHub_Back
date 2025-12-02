@@ -41,7 +41,7 @@
 ## 🌐 Розгортання
 Цей API розгорнуто на платформі Render.  
 Базовий URL_API: https://notehub-back.onrender.com  
-Swagger NoteHub API   
+Swagger NoteHub   
 URL: https://notehub-back.onrender.com/api-docs  
 
 
