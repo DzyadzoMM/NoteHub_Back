@@ -11,6 +11,6 @@ export const connectMongoDB = async () => {
     await Note.syncIndexes();
   } catch (error) {
     console.error('❌ Failed to connect to MongoDB:', error.message);
-    process.exit(1); // аварійне завершення програми
+    process.exit(1);
   }
 };

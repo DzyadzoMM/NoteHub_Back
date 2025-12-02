@@ -7,6 +7,8 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 import notesRoutes from './routes/notesRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
@@ -14,6 +16,7 @@ import userRoutes from './routes/userRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 3030;
 
+const swaggerDocument = YAML.load('./swagger.yaml');
 app.use(logger);
 //app.use(express.json());
 //POST
@@ -23,27 +26,17 @@ app.use(express.json({
 app.use(cors());
 app.use(cookieParser());
 
-//Test-error
-/*app.get('/test-error', () => {
-  throw new Error('Simulated server error');
-});*/
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-//підключаємо групу маршрутів користувачів
 app.use(authRoutes);
-//підключаємо групу маршрутів нотаток
 app.use(notesRoutes);
-//підключаємо групу маршрутів user
 app.use(userRoutes);
-// 404 — якщо маршрут не знайдено
 app.use(notFoundHandler);
 
-// error 'celebrate'
 app.use(errors());
 
-// Error — якщо під час запиту виникла помилка
 app.use(errorHandler);
 
-// підключення до MongoDB 
 await connectMongoDB();
 
 app.listen(PORT, ()=>{

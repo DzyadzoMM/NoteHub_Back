@@ -15,8 +15,6 @@ export const createSession = (userId) =>{
         refreshTokenValidUntil: new Date(Date.now()+ ONE_DAY),
     })
 };
-
-//Створення Cookies
 export const setSessionCookies = (res, session) => {
     res.cookie("accessToken", session.accessToken, {
         httpOnly: true,
@@ -39,19 +37,3 @@ export const setSessionCookies = (res, session) => {
         maxAge: ONE_DAY,
     });
 };
-
-/*У src/services/auth.js реалізуйте дві функції:
-
-createSession(userId) — створює access та refresh токени, створює сесію в базі даних і повертає її;
-setSessionCookies(res, session) — додає до відповіді три кукі:
-accessToken
-refreshToken
-sessionId
-
-
-При встановленні кожної кукі обов’язково використовуйте однакові параметри:
-
-httpOnly: true
-secure: true
-sameSite: 'none'
-maxAge: для accessToken — 15 хв, для refreshToken і sessionId — 1 день. */

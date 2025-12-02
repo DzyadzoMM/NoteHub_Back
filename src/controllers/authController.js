@@ -1,5 +1,5 @@
 import createHttpError from 'http-errors';
-import bcrypt from 'bcrypt'; 
+import bcrypt from 'bcryptjs'; 
 import jwt from 'jsonwebtoken';
 import handlebars from 'handlebars';
 import path from 'node:path';
