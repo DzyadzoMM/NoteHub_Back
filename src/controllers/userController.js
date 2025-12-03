@@ -16,3 +16,12 @@ export const updateUserAvatar = async(req, res) =>{
         url: user.avatar
     });
 };
+
+export const getCurrentUser = async(req, res) =>{
+    
+    if (!req.user) {
+        throw createHttpError(401, "User not authenticated."); 
+    }
+
+    res.status(200).json(req.user);
+};
