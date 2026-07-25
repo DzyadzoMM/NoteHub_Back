@@ -7,6 +7,8 @@ export const connectMongoDB = async () => {
     const mongoUrl = process.env.MONGO_URL;
     await mongoose.connect(mongoUrl);
     console.log('✅ MongoDB connection established successfully');
+    console.log("Current DB Name:", mongoose.connection.name);
+    console.log("Connection Host:", mongoose.connection.host);
 
     await Note.syncIndexes();
   } catch (error) {
