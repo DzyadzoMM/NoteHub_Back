@@ -24,7 +24,7 @@ app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
 }));
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://notehub-back.onrender.com'], 
+  origin: allowedOrigins,
   credentials: true, 
 }));
 app.use(cookieParser());
