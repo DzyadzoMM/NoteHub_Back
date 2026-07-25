@@ -23,7 +23,10 @@ app.use(logger);
 app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
 }));
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://notehub-back.onrender.com'], 
+  credentials: true, 
+}));
 app.use(cookieParser());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
