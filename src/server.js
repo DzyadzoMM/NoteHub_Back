@@ -24,7 +24,7 @@ app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
 }));
 app.use(cors({
-  origin: allowedOrigins,
+  origin: true,
   credentials: true, 
 }));
 app.use(cookieParser());
