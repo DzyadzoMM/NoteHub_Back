@@ -13,7 +13,7 @@ export const  loginUserSchema = {
         email: Joi.string().email().required(),
         password: Joi.string().required(),
     })
-}
+};
 
 export const requestResetEmailSchema ={
     [Segments.BODY]: Joi.object({
