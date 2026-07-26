@@ -18,8 +18,7 @@ const PORT = process.env.PORT || 3030;
 
 const swaggerDocument = YAML.load('./swagger.yaml');
 app.use(logger);
-//app.use(express.json());
-//POST
+
 app.use(express.json({
   type: ['application/json', 'application/vnd.api+json'],
 }));
@@ -44,4 +43,4 @@ await connectMongoDB();
 
 app.listen(PORT, ()=>{
     console.log(`Server is running at port ${PORT}`);
-})
+});
